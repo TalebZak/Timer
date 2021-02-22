@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:timer/widgets/bottom_nav_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -39,58 +40,10 @@ class _HomeScreenState extends State<HomeScreen> {
     ];
     return Scaffold(
       body: Screens[_screenindex],
-      bottomNavigationBar: _BottomNavigationBar(
+      bottomNavigationBar: BottomNavBar(
         index: _screenindex,
         callback: setScreenindex,
       ),
-    );
-  }
-}
-class _BottomNavigationBar extends StatefulWidget {
-  final int index;
-  final Function callback;
-  const _BottomNavigationBar({Key key, this.index, this.callback}) : super(key: key);
-
-  @override
-  __BottomNavigationBarState createState() => __BottomNavigationBarState();
-}
-
-class __BottomNavigationBarState extends State<_BottomNavigationBar> {
-  @override
-  Widget build(BuildContext context) {
-
-    _buildBottomNavBarItem(Icon icon, String label){
-      return BottomNavigationBarItem(
-          icon: Padding(
-            padding: EdgeInsets.all(8.0),
-            child: icon,
-          ),
-          label: label
-      );
-    }
-    return BottomNavigationBar(
-        backgroundColor: Theme.of(context).backgroundColor,
-        currentIndex: widget.index,
-        unselectedItemColor: Theme.of(context).accentColor,
-        unselectedFontSize: 14,
-        selectedFontSize: 14,
-        items: [
-          _buildBottomNavBarItem(
-              Icon(Icons.timer),
-              'stopwatch'
-          ),
-          _buildBottomNavBarItem(
-              Icon(Icons.slow_motion_video),
-              'Timer',
-          ),
-          _buildBottomNavBarItem(
-              Icon(Icons.settings),
-              'Settings',
-          ),
-        ],
-        onTap: (index){
-          widget.callback(index);
-        },
     );
   }
 }
