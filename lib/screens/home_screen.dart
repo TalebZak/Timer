@@ -40,10 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
     ];
     return Scaffold(
       body: Screens[_screenindex],
-      bottomNavigationBar: BottomNavBar(
-        index: _screenindex,
-        callback: setScreenindex,
-      ),
+      bottomNavigationBar: BottomNavBar(),
     );
   }
 }
