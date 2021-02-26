@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class StopwatchProvider with ChangeNotifier {
   Stopwatch _sw = new Stopwatch();
   String _returnString = "00:00:00";
-  Timer _t;
 
   String get time => _returnString;
 
@@ -33,7 +32,7 @@ class StopwatchProvider with ChangeNotifier {
   }
 
   void update() {
-    Timer.periodic(Duration(milliseconds: 250), (_t) {
+    Timer.periodic(Duration(milliseconds: 250), (Timer t) {
       _returnString = _buildreturnString();
       notifyListeners();
       print(_returnString);
