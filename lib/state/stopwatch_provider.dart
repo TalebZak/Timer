@@ -48,10 +48,10 @@ class StopwatchProvider with ChangeNotifier {
     String hours_string =
         hours_elapsed < 10 ? "0${hours_elapsed}" : hours_elapsed.toString();
     String minutes_string = minutes_elapsed < 10
-        ? "0${minutes_elapsed}"
+        ? "0" + minutes_elapsed.toString()
         : minutes_elapsed.toString();
     String seconds_string = seconds_elapsed < 10
-        ? "0${seconds_elapsed}"
+        ? "0" + seconds_elapsed.toString()
         : seconds_elapsed.toString();
     return hours_string + ":" + minutes_string + ":" + seconds_string;
   }

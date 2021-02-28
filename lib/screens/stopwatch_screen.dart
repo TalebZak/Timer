@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:timer/state/stopwatch_provider.dart';
 import 'package:timer/widgets/bottom_nav_bar.dart';
+import 'package:timer/widgets/start_button.dart';
 
 class StopWatchScreen extends StatelessWidget {
   static const routeName = '/stopwatch-screen';
@@ -19,13 +20,7 @@ class StopWatchScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline1),
               );
             }
-            return Center(
-              child: GestureDetector(
-                onTap: state.start,
-                child: Icon(Icons.play_circle_filled_outlined,
-                    size: 200, color: Theme.of(context).primaryColor),
-              ),
-            );
+            return StartButton(onTap: state.start);
           },
         ),
       ),
